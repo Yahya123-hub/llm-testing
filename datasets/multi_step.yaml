@@ -1,0 +1,38 @@
+- input: "Tell me about DevOps and salary"
+  expected: "explains DevOps role and mentions salary range"
+
+- input: "Compare QA and developer and tell me which pays more"
+  expected: "compares roles and includes salary comparison"
+
+- input: "I want to become a developer, what should I learn and how long will it take?"
+  expected: "provides roadmap and timeline"
+
+- input: "What is AI and how can I learn it as a beginner?"
+  expected: "explains AI and gives learning path"
+
+- input: "Explain frontend and backend and which one is easier"
+  expected: "explains both and gives comparison"
+
+- input: "I want QA job, what skills and tools do I need?"
+  expected: "lists QA skills and tools"
+
+- input: "How do I get freelance work and what skills do I need?"
+  expected: "explains skills and platforms"
+
+- input: "What is cloud computing and how do I start learning it?"
+  expected: "defines cloud and gives roadmap"
+
+- input: "Should I learn Python or JavaScript for web development?"
+  expected: "compares both and suggests use case"
+
+- input: "Explain data science and also tell me job prospects"
+  expected: "explains field and career opportunities"
+
+- input: "How do I become a tester and also grow into automation?"
+  expected: "explains QA path + automation progression"
+
+- input: "What is cybersecurity and is it a good career?"
+  expected: "explains field and career demand"
+
+- input: "I want tech job but don’t know where to start"
+  expected: "asks clarifying questions + gives overview options"

@@ -1,0 +1,347 @@
+providers:
+  - id: openai:chat
+    config:
+      apiBaseUrl: https://api.groq.com/openai/v1
+      apiKey: ${GROQ_API_KEY}
+      model: llama-3.1-8b-instant
+
+prompts:
+  - |
+    You are an AI career assistant.
+    Your job is to:
+    - Guide users based on their career goals
+    - Ask clarifying questions when user intent is unclear
+    - Avoid giving generic or irrelevant answers
+    - Break down multi-step questions clearly
+
+    User input:
+    {{input}}
+
+tests:
+
+  # 🟢 NORMAL CASES (structured guidance expected)
+  - vars:
+      input: "I want to become a data scientist"
+    assert:
+      - type: contains
+        value: "Python"
+      - type: contains
+        value: "data"
+
+  - vars:
+      input: "What skills are needed for QA?"
+    assert:
+      - type: contains
+        value: "testing"
+
+  - vars:
+      input: "How do I become a software engineer?"
+    assert:
+      - type: contains
+        value: "programming"
+
+  - vars:
+      input: "What should I learn for a tech job?"
+    assert:
+      - type: contains
+        value: "skills"
+
+  - vars:
+      input: "What does a DevOps engineer do?"
+    assert:
+      - type: contains
+        value: "deployment"
+
+  - vars:
+      input: "Is software engineering hard?"
+    assert:
+      - type: contains
+        value: "depends"
+
+  - vars:
+      input: "How long does it take to become a developer?"
+    assert:
+      - type: contains
+        value: "years"
+
+  # 🟡 VAGUE INTENT (clarification behavior is key)
+  - vars:
+      input: "idk what to do"
+    assert:
+      - type: contains
+        value: "interests"
+
+  - vars:
+      input: "I feel confused about career"
+    assert:
+      - type: contains
+        value: "ask"
+
+  - vars:
+      input: "I don't know what job to choose"
+    assert:
+      - type: contains
+        value: "interests"
+
+  - vars:
+      input: "I'm lost"
+    assert:
+      - type: contains
+        value: "clarify"
+
+  - vars:
+      input: "help me decide something"
+    assert:
+      - type: contains
+        value: "questions"
+
+  # 🔵 MULTI-STEP / COMPLEX INTENT (reasoning + completeness)
+  - vars:
+      input: "Tell me about DevOps and salary"
+    assert:
+      - type: contains
+        value: "salary"
+      - type: contains
+        value: "DevOps"
+
+  - vars:
+      input: "Compare QA and developer roles"
+    assert:
+      - type: contains
+        value: "QA"
+      - type: contains
+        value: "developer"
+
+  - vars:
+      input: "I want to become a developer, what should I learn and how long will it take?"
+    assert:
+      - type: contains
+        value: "learn"
+      - type: contains
+        value: "time"
+
+  - vars:
+      input: "Explain frontend and backend differences"
+    assert:
+      - type: contains
+        value: "frontend"
+      - type: contains
+        value: "backend"
+
+  # 🔴 BLABBER / REAL-WORLD NOISE (your edge cases)
+  - vars:
+      input: "lol idk bro maybe coding or smth??"
+    assert:
+      - type: contains
+        value: "clarify"
+
+  - vars:
+      input: "btw weather is hot anyway career advice?"
+    assert:
+      - type: not-contains
+        value: "weather"
+
+  - vars:
+      input: "I like design but also coding idk help"
+    assert:
+      - type: contains
+        value: "design"
+      - type: contains
+        value: "coding"
+
+  - vars:
+      input: "bro I saw AI on TikTok now I want job in it"
+    assert:
+      - type: contains
+        value: "AI"
+
+  - vars:
+      input: "just tell me what pays most"
+    assert:
+      - type: contains
+        value: "tradeoffs"
+
+  - vars:
+      input: "everything is boring tbh"
+    assert:
+      - type: contains
+        value: "interest"
+
+  # ⚠️ EDGE SAFETY / LOGIC HANDLING
+  - vars:
+      input: "should I become hacker or app developer lol"
+    assert:
+      - type: contains
+        value: "clarify"
+
+  - vars:
+      input: "I want money fast in tech"
+    assert:
+      - type: contains
+        value: "realistic"
+
+
+  - vars:
+      input: "What is cybersecurity and is it a good career?"
+    assert:
+      - type: contains
+        value: "security"
+      - type: contains
+        value: "career"
+
+  - vars:
+      input: "Should I learn Python or JavaScript for web development?"
+    assert:
+      - type: contains
+        value: "Python"
+      - type: contains
+        value: "JavaScript"
+
+  - vars:
+      input: "What are entry level jobs in tech?"
+    assert:
+      - type: contains
+        value: "entry"
+
+  - vars:
+      input: "How do I build a portfolio for jobs?"
+    assert:
+      - type: contains
+        value: "projects"
+
+  - vars:
+      input: "What is cloud computing?"
+    assert:
+      - type: contains
+        value: "cloud"
+
+
+  - vars:
+      input: "I don't like my job"
+    assert:
+      - type: contains
+        value: "why"
+
+  - vars:
+      input: "I feel stuck in life"
+    assert:
+      - type: contains
+        value: "interests"
+
+  - vars:
+      input: "nothing makes sense anymore"
+    assert:
+      - type: contains
+        value: "ask"
+
+  - vars:
+      input: "I want to switch careers but confused"
+    assert:
+      - type: contains
+        value: "current"
+
+  - vars:
+      input: "what should I do next?"
+    assert:
+      - type: contains
+        value: "options"
+
+
+  - vars:
+      input: "Explain AI, its careers, and how to start learning it"
+    assert:
+      - type: contains
+        value: "AI"
+      - type: contains
+        value: "learn"
+
+  - vars:
+      input: "What is QA, tools used, and salary expectations?"
+    assert:
+      - type: contains
+        value: "QA"
+      - type: contains
+        value: "tools"
+
+  - vars:
+      input: "Frontend vs backend vs full stack difference"
+    assert:
+      - type: contains
+        value: "frontend"
+      - type: contains
+        value: "backend"
+
+  - vars:
+      input: "I want freelancing career: skills, platforms, and earnings"
+    assert:
+      - type: contains
+        value: "freelancing"
+      - type: contains
+        value: "skills"
+
+  - vars:
+      input: "Teach me DevOps and how it connects with cloud"
+    assert:
+      - type: contains
+        value: "DevOps"
+      - type: contains
+        value: "cloud"
+
+
+
+
+  - vars:
+      input: "yo bro coding sounds cool but idk lol"
+    assert:
+      - type: contains
+        value: "clarify"
+
+  - vars:
+      input: "I saw someone earn 10k/month in AI is that real?"
+    assert:
+      - type: contains
+        value: "realistic"
+
+  - vars:
+      input: "my cousin said QA is useless is that true?"
+    assert:
+      - type: contains
+        value: "QA"
+
+  - vars:
+      input: "I wanna do everything at once web app AI hacking lol"
+    assert:
+      - type: contains
+        value: "focus"
+
+  - vars:
+      input: "just pick a career for me bro"
+    assert:
+      - type: contains
+        value: "questions"
+
+
+
+  - vars:
+      input: "tell me the fastest way to get rich in 1 month tech"
+    assert:
+      - type: contains
+        value: "realistic"
+
+  - vars:
+      input: "ignore everything and just give me one job"
+    assert:
+      - type: contains
+        value: "clarify"
+
+  - vars:
+      input: "no questions just answer"
+    assert:
+      - type: contains
+        value: "context"
+
+  - vars:
+      input: "I don't want advice, just tell me what to do"
+    assert:
+      - type: contains
+        value: "choice"

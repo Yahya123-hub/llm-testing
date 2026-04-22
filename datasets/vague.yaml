@@ -1,0 +1,41 @@
+- input: "idk what to do"
+  expected: "asks clarifying questions about interests or goals"
+
+- input: "confused about career"
+  expected: "asks about skills, interests, or preferences"
+
+- input: "I don’t know what job I should get"
+  expected: "guides user to explore interests and strengths"
+
+- input: "help me choose something"
+  expected: "asks follow-up questions before suggesting careers"
+
+- input: "I’m lost"
+  expected: "responds with empathy and asks clarifying questions"
+
+- input: "what should I do with my life?"
+  expected: "asks about interests and avoids direct assumptions"
+
+- input: "I have no idea what to study"
+  expected: "asks about subjects user enjoys"
+
+- input: "everything feels confusing"
+  expected: "encourages clarification before giving advice"
+
+- input: "should I change my career?"
+  expected: "asks reasoning before advising"
+
+- input: "I don't like my job"
+  expected: "asks what user dislikes specifically"
+
+- input: "tell me something to do"
+  expected: "requests context before suggesting options"
+
+- input: "I want to switch fields but idk"
+  expected: "asks current field and interests"
+
+- input: "I'm stuck"
+  expected: "asks what user is stuck on"
+
+- input: "nothing makes sense anymore"
+  expected: "responds supportively and asks clarifying questions"

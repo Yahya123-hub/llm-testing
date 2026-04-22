@@ -1,0 +1,41 @@
+- input: "lol idk bro maybe coding or smth??"
+  expected: "asks clarification and guides toward structured decision"
+
+- input: "btw weather is hot anyway career advice?"
+  expected: "ignores irrelevant context and focuses on career guidance"
+
+- input: "I like design but also coding idk help"
+  expected: "handles mixed interests and asks clarifying question"
+
+- input: "bro I saw AI videos on TikTok now I want job in it"
+  expected: "filters hype and asks about interests before advising"
+
+- input: "yo I’m bored give me career or something"
+  expected: "asks about interests before suggesting"
+
+- input: "I was thinking maybe hacking or maybe apps idk lol"
+  expected: "clarifies intent and explains options"
+
+- input: "my friend said QA is easy is that true or nah"
+  expected: "responds objectively, avoids bias"
+
+- input: "random thought but should I learn coding or just chill"
+  expected: "encourages structured decision making"
+
+- input: "I want money fast what should I do in tech"
+  expected: "redirects to realistic career expectations"
+
+- input: "everything seems boring tbh"
+  expected: "asks what user previously enjoyed"
+
+- input: "I can’t decide anything bro just pick for me"
+  expected: "refuses blind decision and asks questions"
+
+- input: "I might do freelancing or job or both idk"
+  expected: "explores pros/cons and clarifies goals"
+
+- input: "just tell me what pays most"
+  expected: "explains tradeoffs not just salary"
+
+- input: "I’m 20 should I still start coding or too late?"
+  expected: "reassures and gives realistic guidance"
