@@ -1,41 +1,85 @@
-- input: "lol idk bro maybe coding or smth??"
-  expected: "asks clarification and guides toward structured decision"
+- vars:
+    input: "lol idk bro maybe coding or smth??"
+  assert:
+    - type: regex
+      value: "(clarify|interest|goal|what do you|help you decide)"
 
-- input: "btw weather is hot anyway career advice?"
-  expected: "ignores irrelevant context and focuses on career guidance"
+- vars:
+    input: "btw weather is hot anyway career advice?"
+  assert:
+    - type: not-contains
+      value: "weather"
+    - type: regex
+      value: "(career|skills|learn|job)"
 
-- input: "I like design but also coding idk help"
-  expected: "handles mixed interests and asks clarifying question"
+- vars:
+    input: "I like design but also coding idk help"
+  assert:
+    - type: regex
+      value: "(design|coding|frontend|backend|interest|choose)"
 
-- input: "bro I saw AI videos on TikTok now I want job in it"
-  expected: "filters hype and asks about interests before advising"
+- vars:
+    input: "bro I saw AI videos on TikTok now I want job in it"
+  assert:
+    - type: regex
+      value: "(AI|learning|skills|realistic|start)"
 
-- input: "yo I’m bored give me career or something"
-  expected: "asks about interests before suggesting"
+- vars:
+    input: "yo I’m bored give me career or something"
+  assert:
+    - type: regex
+      value: "(interest|what do you enjoy|skills|goal)"
 
-- input: "I was thinking maybe hacking or maybe apps idk lol"
-  expected: "clarifies intent and explains options"
+- vars:
+    input: "I was thinking maybe hacking or maybe apps idk lol"
+  assert:
+    - type: regex
+      value: "(security|development|apps|clarify|interest)"
 
-- input: "my friend said QA is easy is that true or nah"
-  expected: "responds objectively, avoids bias"
+- vars:
+    input: "my friend said QA is easy is that true or nah"
+  assert:
+    - type: regex
+      value: "(QA|testing|depends|skills|effort)"
 
-- input: "random thought but should I learn coding or just chill"
-  expected: "encourages structured decision making"
+- vars:
+    input: "random thought but should I learn coding or just chill"
+  assert:
+    - type: regex
+      value: "(depends|goal|career|skills|future)"
 
-- input: "I want money fast what should I do in tech"
-  expected: "redirects to realistic career expectations"
+- vars:
+    input: "I want money fast what should I do in tech"
+  assert:
+    - type: regex
+      value: "(realistic|time|skills|effort|learn)"
 
-- input: "everything seems boring tbh"
-  expected: "asks what user previously enjoyed"
+- vars:
+    input: "everything seems boring tbh"
+  assert:
+    - type: regex
+      value: "(interest|enjoy|try|explore|what do you)"
 
-- input: "I can’t decide anything bro just pick for me"
-  expected: "refuses blind decision and asks questions"
+- vars:
+    input: "I can’t decide anything bro just pick for me"
+  assert:
+    - type: regex
+      value: "(cannot|clarify|interest|questions|help decide)"
 
-- input: "I might do freelancing or job or both idk"
-  expected: "explores pros/cons and clarifies goals"
+- vars:
+    input: "I might do freelancing or job or both idk"
+  assert:
+    - type: regex
+      value: "(freelancing|job|both|pros|cons|depends)"
 
-- input: "just tell me what pays most"
-  expected: "explains tradeoffs not just salary"
+- vars:
+    input: "just tell me what pays most"
+  assert:
+    - type: regex
+      value: "(salary|pay|depends|skills|tradeoff)"
 
-- input: "I’m 20 should I still start coding or too late?"
-  expected: "reassures and gives realistic guidance"
+- vars:
+    input: "I’m 20 should I still start coding or too late?"
+  assert:
+    - type: regex
+      value: "(not too late|start|learn|time|career)"

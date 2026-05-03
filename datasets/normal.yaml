@@ -1,44 +1,89 @@
-- input: "How do I become a software engineer?"
-  expected: "mentions programming fundamentals, practice, and a learning roadmap"
+- vars:
+    input: "How do I become a software engineer?"
+  assert:
+    - type: regex
+      value: "(programming|fundamentals|practice|roadmap)"
 
-- input: "What skills are needed for QA?"
-  expected: "mentions manual testing, automation, test cases, and tools like Selenium or Postman"
+- vars:
+    input: "What skills are needed for QA?"
+  assert:
+    - type: regex
+      value: "(testing|automation|test cases|Selenium|Postman)"
 
-- input: "How do I start learning programming?"
-  expected: "suggests beginner languages, practice, and consistency"
+- vars:
+    input: "How do I start learning programming?"
+  assert:
+    - type: regex
+      value: "(beginner|Python|JavaScript|practice|consistency)"
 
-- input: "What should I learn to get a tech job?"
-  expected: "mentions coding, problem solving, and building projects"
+- vars:
+    input: "What should I learn to get a tech job?"
+  assert:
+    - type: regex
+      value: "(coding|problem solving|projects|skills)"
 
-- input: "Is software engineering hard to learn?"
-  expected: "explains difficulty depends on consistency and practice"
+- vars:
+    input: "Is software engineering hard to learn?"
+  assert:
+    - type: regex
+      value: "(depends|practice|consistency|learning)"
 
-- input: "What is the difference between QA and developer?"
-  expected: "explains QA tests software and developers build it"
+- vars:
+    input: "What is the difference between QA and developer?"
+  assert:
+    - type: regex
+      value: "(QA|testing|developer|build)"
 
-- input: "How long does it take to become a developer?"
-  expected: "mentions 6–24 months depending on effort"
+- vars:
+    input: "How long does it take to become a developer?"
+  assert:
+    - type: regex
+      value: "(months|years|6|12|24|time)"
 
-- input: "Best programming language to start with?"
-  expected: "suggests Python or JavaScript for beginners"
+- vars:
+    input: "Best programming language to start with?"
+  assert:
+    - type: regex
+      value: "(Python|JavaScript|beginner)"
 
-- input: "What is automation testing?"
-  expected: "explains automation tools and reducing manual effort"
+- vars:
+    input: "What is automation testing?"
+  assert:
+    - type: regex
+      value: "(automation|tools|testing|manual)"
 
-- input: "How do I become a freelancer in tech?"
-  expected: "mentions skills, portfolio, and platforms like Fiverr or Upwork"
+- vars:
+    input: "How do I become a freelancer in tech?"
+  assert:
+    - type: regex
+      value: "(skills|portfolio|Fiverr|Upwork|clients)"
 
-- input: "Should I learn frontend or backend first?"
-  expected: "explains both paths and suggests starting with one"
+- vars:
+    input: "Should I learn frontend or backend first?"
+  assert:
+    - type: regex
+      value: "(frontend|backend|choose|start)"
 
-- input: "What does a DevOps engineer do?"
-  expected: "explains deployment, CI/CD, and infrastructure automation"
+- vars:
+    input: "What does a DevOps engineer do?"
+  assert:
+    - type: regex
+      value: "(deployment|CI/CD|cloud|automation)"
 
-- input: "How do I build a portfolio as a developer?"
-  expected: "suggests projects, GitHub, and showcasing work"
+- vars:
+    input: "How do I build a portfolio as a developer?"
+  assert:
+    - type: regex
+      value: "(projects|GitHub|portfolio|showcase)"
 
-- input: "What are entry level tech jobs?"
-  expected: "lists QA, junior developer, support engineer roles"
+- vars:
+    input: "What are entry level tech jobs?"
+  assert:
+    - type: regex
+      value: "(QA|junior|support|entry)"
 
-- input: "Do I need a degree for software engineering?"
-  expected: "explains not required but helpful in some cases"
+- vars:
+    input: "Do I need a degree for software engineering?"
+  assert:
+    - type: regex
+      value: "(degree|not required|skills|experience)"

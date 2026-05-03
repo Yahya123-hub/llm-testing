@@ -1,38 +1,109 @@
-- input: "Tell me about DevOps and salary"
-  expected: "explains DevOps role and mentions salary range"
+- vars:
+    input: "Tell me about DevOps and salary"
+  assert:
+    - type: regex
+      value: "(DevOps|deployment|CI/CD|cloud)"
+    - type: regex
+      value: "(salary|pay|income)"
 
-- input: "Compare QA and developer and tell me which pays more"
-  expected: "compares roles and includes salary comparison"
+- vars:
+    input: "Compare QA and developer and tell me which pays more"
+  assert:
+    - type: regex
+      value: "(QA|testing)"
+    - type: regex
+      value: "(developer|engineering)"
+    - type: regex
+      value: "(salary|pay|more)"
 
-- input: "I want to become a developer, what should I learn and how long will it take?"
-  expected: "provides roadmap and timeline"
+- vars:
+    input: "I want to become a developer, what should I learn and how long will it take?"
+  assert:
+    - type: regex
+      value: "(learn|skills|roadmap|programming)"
+    - type: regex
+      value: "(time|months|years|timeline)"
 
-- input: "What is AI and how can I learn it as a beginner?"
-  expected: "explains AI and gives learning path"
+- vars:
+    input: "What is AI and how can I learn it as a beginner?"
+  assert:
+    - type: regex
+      value: "(AI|artificial intelligence)"
+    - type: regex
+      value: "(learn|beginner|start|roadmap)"
 
-- input: "Explain frontend and backend and which one is easier"
-  expected: "explains both and gives comparison"
+- vars:
+    input: "Explain frontend and backend and which one is easier"
+  assert:
+    - type: regex
+      value: "(frontend)"
+    - type: regex
+      value: "(backend)"
+    - type: regex
+      value: "(easier|difficulty|depends)"
 
-- input: "I want QA job, what skills and tools do I need?"
-  expected: "lists QA skills and tools"
+- vars:
+    input: "I want QA job, what skills and tools do I need?"
+  assert:
+    - type: regex
+      value: "(QA|testing)"
+    - type: regex
+      value: "(tools|Selenium|Postman|automation)"
 
-- input: "How do I get freelance work and what skills do I need?"
-  expected: "explains skills and platforms"
+- vars:
+    input: "How do I get freelance work and what skills do I need?"
+  assert:
+    - type: regex
+      value: "(freelance|clients|platforms|Upwork|Fiverr)"
+    - type: regex
+      value: "(skills|learn)"
 
-- input: "What is cloud computing and how do I start learning it?"
-  expected: "defines cloud and gives roadmap"
+- vars:
+    input: "What is cloud computing and how do I start learning it?"
+  assert:
+    - type: regex
+      value: "(cloud|computing)"
+    - type: regex
+      value: "(learn|start|roadmap)"
 
-- input: "Should I learn Python or JavaScript for web development?"
-  expected: "compares both and suggests use case"
+- vars:
+    input: "Should I learn Python or JavaScript for web development?"
+  assert:
+    - type: regex
+      value: "(Python)"
+    - type: regex
+      value: "(JavaScript)"
+    - type: regex
+      value: "(web|development|use case)"
 
-- input: "Explain data science and also tell me job prospects"
-  expected: "explains field and career opportunities"
+- vars:
+    input: "Explain data science and also tell me job prospects"
+  assert:
+    - type: regex
+      value: "(data science|data)"
+    - type: regex
+      value: "(career|jobs|demand|opportunities)"
 
-- input: "How do I become a tester and also grow into automation?"
-  expected: "explains QA path + automation progression"
+- vars:
+    input: "How do I become a tester and also grow into automation?"
+  assert:
+    - type: regex
+      value: "(tester|QA|testing)"
+    - type: regex
+      value: "(automation|Selenium|tools)"
 
-- input: "What is cybersecurity and is it a good career?"
-  expected: "explains field and career demand"
+- vars:
+    input: "What is cybersecurity and is it a good career?"
+  assert:
+    - type: regex
+      value: "(cybersecurity|security)"
+    - type: regex
+      value: "(career|demand|jobs)"
 
-- input: "I want tech job but don’t know where to start"
-  expected: "asks clarifying questions + gives overview options"
+- vars:
+    input: "I want tech job but don’t know where to start"
+  assert:
+    - type: regex
+      value: "(clarify|interests|questions)"
+    - type: regex
+      value: "(options|roles|tech)"

@@ -1,41 +1,83 @@
-- input: "idk what to do"
-  expected: "asks clarifying questions about interests or goals"
+- vars:
+    input: "idk what to do"
+  assert:
+    - type: regex
+      value: "(interests|goals|clarify|questions|ask)"
 
-- input: "confused about career"
-  expected: "asks about skills, interests, or preferences"
+- vars:
+    input: "confused about career"
+  assert:
+    - type: regex
+      value: "(skills|interests|preferences|goals|ask)"
 
-- input: "I don’t know what job I should get"
-  expected: "guides user to explore interests and strengths"
+- vars:
+    input: "I don’t know what job I should get"
+  assert:
+    - type: regex
+      value: "(interests|strengths|skills|explore|ask)"
 
-- input: "help me choose something"
-  expected: "asks follow-up questions before suggesting careers"
+- vars:
+    input: "help me choose something"
+  assert:
+    - type: regex
+      value: "(questions|clarify|options|ask)"
 
-- input: "I’m lost"
-  expected: "responds with empathy and asks clarifying questions"
+- vars:
+    input: "I’m lost"
+  assert:
+    - type: regex
+      value: "(clarify|questions|interests|goals)"
 
-- input: "what should I do with my life?"
-  expected: "asks about interests and avoids direct assumptions"
+- vars:
+    input: "what should I do with my life?"
+  assert:
+    - type: regex
+      value: "(interests|goals|skills|ask)"
 
-- input: "I have no idea what to study"
-  expected: "asks about subjects user enjoys"
+- vars:
+    input: "I have no idea what to study"
+  assert:
+    - type: regex
+      value: "(subjects|interests|study|ask)"
 
-- input: "everything feels confusing"
-  expected: "encourages clarification before giving advice"
+- vars:
+    input: "everything feels confusing"
+  assert:
+    - type: regex
+      value: "(clarify|questions|help|interests)"
 
-- input: "should I change my career?"
-  expected: "asks reasoning before advising"
+- vars:
+    input: "should I change my career?"
+  assert:
+    - type: regex
+      value: "(why|reason|current|goals|ask)"
 
-- input: "I don't like my job"
-  expected: "asks what user dislikes specifically"
+- vars:
+    input: "I don't like my job"
+  assert:
+    - type: regex
+      value: "(why|dislike|reason|interests)"
 
-- input: "tell me something to do"
-  expected: "requests context before suggesting options"
+- vars:
+    input: "tell me something to do"
+  assert:
+    - type: regex
+      value: "(context|clarify|questions|options)"
 
-- input: "I want to switch fields but idk"
-  expected: "asks current field and interests"
+- vars:
+    input: "I want to switch fields but idk"
+  assert:
+    - type: regex
+      value: "(current|skills|interests|ask)"
 
-- input: "I'm stuck"
-  expected: "asks what user is stuck on"
+- vars:
+    input: "I'm stuck"
+  assert:
+    - type: regex
+      value: "(what|stuck|problem|clarify|ask)"
 
-- input: "nothing makes sense anymore"
-  expected: "responds supportively and asks clarifying questions"
+- vars:
+    input: "nothing makes sense anymore"
+  assert:
+    - type: regex
+      value: "(help|clarify|questions|support)"
