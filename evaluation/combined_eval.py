@@ -1,5 +1,6 @@
 from deepeval import evaluate
 from deepeval.test_case import LLMTestCase
+from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric, ToxicityMetric
 
 from chatbot.app import get_response
 from rag.retriever import retrieve_context
@@ -7,8 +8,9 @@ from rag.retriever import retrieve_context
 import subprocess
 import json
 
+
 def run_promptfoo(input_text, output_text):
-    
+
     payload = {
         "input": input_text,
         "output": output_text
@@ -25,9 +27,11 @@ def run_promptfoo(input_text, output_text):
 
     return result.stdout
 
+
 def run_combined_eval(test_cases):
 
     results = []
+    deepeval_cases = []   
 
     for tc in test_cases:
 
@@ -45,10 +49,23 @@ def run_combined_eval(test_cases):
             retrieval_context=context
         )
 
+        deepeval_cases.append(deepeval_case)
+
         results.append({
             "input": input_text,
-            "promptfoo": promptfoo_result,
-            "deepeval_input": deepeval_case
+            "output": output,
+            "promptfoo": promptfoo_result
         })
 
-    return results
+    metrics = [
+        AnswerRelevancyMetric(threshold=0.7),
+        FaithfulnessMetric(threshold=0.7),
+        ToxicityMetric(threshold=0.0)
+    ]
+
+    deepeval_results = evaluate(
+        test_cases=deepeval_cases,
+        metrics=metrics
+    )
+
+    return results, deepeval_results
